@@ -41,7 +41,7 @@ class App extends Component {
       this.gameState.gameEnded = true;
       this.setState({
         winner: 'O',
-        winnerLine: 'Match won by O'
+        winnerLine: 'Match won by Computer'
       });
     } else if(result === 'draw') {
       this.gameState.gameEnded = true;
@@ -55,8 +55,6 @@ class App extends Component {
       this.gameState.gameLocked = true;
       setTimeout(()=> {
         do {
-          //we need logic here to know where x is
-          // if x is in 0 fill 3, if in 1 fill 4, if in 
           var random = Math.floor(Math.random()*9);
         } while(this.gameState.board[random] !== '');
         this.gameState.gameLocked = false;
@@ -65,6 +63,7 @@ class App extends Component {
 
     }
 
+    }
   }
 
   checkWinner(){
@@ -85,7 +84,8 @@ class App extends Component {
       <div id="game">
           <div id="status">{this.state.winnerLine}</div>
           <div id="head">
-              World's best tic tac toe AI
+              Tic tac toe AI
+              Start the first move !
           </div>
           <div id="board" onClick={(e)=>this.clicked(e.target)}>
               <div className="square" data-square="0"></div>
